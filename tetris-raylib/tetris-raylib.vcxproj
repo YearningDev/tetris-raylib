@@ -148,10 +148,12 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="raylibCpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
