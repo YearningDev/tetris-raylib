@@ -1,5 +1,5 @@
 #include "Game.h"
-#include <raylib.h>
+#include "raylibCpp.h"
 #include <assert.h>
 Game::Game(int width, int height, int fps, std::string title)
 	:
