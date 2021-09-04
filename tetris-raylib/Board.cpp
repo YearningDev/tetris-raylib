@@ -47,10 +47,7 @@ void Board::DrawCell(Vec2<int> pos) const
 	assert(pos.GetX() >= 0 && pos.GetX() < width && pos.GetY() >= 0 && pos.GetY() < height); //If assertion triggers : pos.GetX() or pos.GetY() is out of bounds
 	Color c = cells[pos.GetY() * width + pos.GetX()].GetColor();
 	Vec2<int> topLeft = screenPos + padding + (pos * cellSize);
-	DrawRectangle(topLeft.GetX(),
-				topLeft.GetY(),
-				cellSize - padding,
-				cellSize - padding,c);
+	raycpp::DrawRectangle(topLeft, Vec2{cellSize,cellSize} - padding,c);
 }
 
 void Board::Draw() const
