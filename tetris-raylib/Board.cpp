@@ -23,12 +23,11 @@ Color Board::Cell::GetColor() const
 	return c;
 }
 
-Board::Board(int screenX, int screenY, int width_in, int height_in, int cellsize_in, int padding)
+Board::Board(Vec2<int> screenPos, Vec2<int> widthHeight, int cellsize_in, int padding)
 	:
-	screenX(screenX),
-	screenY(screenY),
-	width(width_in),
-	height(height_in),
+	screenPos(screenPos),
+	width(widthHeight.GetX()),
+	height(widthHeight.GetY()),
 	cellSize(cellsize_in),
 	padding(padding)
 {
@@ -37,18 +36,19 @@ Board::Board(int screenX, int screenY, int width_in, int height_in, int cellsize
 	cells.resize(width*height);
 }
 
-void Board::SetCell(int x, int y, Color c)
+void Board::SetCell(Vec2<int> pos, Color c)
 {
-	assert(x >= 0 && y >= 0 && x < width && y < height);//If assertion triggers : x or y is out of bounds
-	cells[y * width + x].SetColor(c);
+	assert(pos.GetX() >= 0 && pos.GetY() >= 0 && pos.GetX() < width && pos.GetY() < height);//If assertion triggers : x or pos.GetY() is out of bounds
+	cells[pos.GetY() * width + pos.GetX()].SetColor(c);
 }
 
-void Board::DrawCell(int x, int y) const
+void Board::DrawCell(Vec2<int> pos) const
 {
-	assert(x >= 0 && x < width && y >= 0 && y < height); //If assertion triggers : x or y is out of bounds
-	Color c = cells[y * width + x].GetColor();
-	DrawRectangle(screenX + x * cellSize + padding,
-				screenY + y * cellSize + padding,
+	assert(pos.GetX() >= 0 && pos.GetX() < width && pos.GetY() >= 0 && pos.GetY() < height); //If assertion triggers : pos.GetX() or pos.GetY() is out of bounds
+	Color c = cells[pos.GetY() * width + pos.GetX()].GetColor();
+	Vec2<int> topLeft = screenPos + padding + (pos * cellSize);
+	DrawRectangle(topLeft.GetX(),
+				topLeft.GetY(),
 				cellSize - padding,
 				cellSize - padding,c);
 }
@@ -59,7 +59,7 @@ void Board::Draw() const
 	{
 		for (int iX = 0; iX < width; ++iX)
 		{
-			DrawCell(iX,iY);
+			DrawCell({iX,iY});
 		}
 	}
 }
