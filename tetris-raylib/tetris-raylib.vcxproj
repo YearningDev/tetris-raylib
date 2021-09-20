@@ -154,6 +154,7 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="raylibCpp.h" />
+    <ClInclude Include="Settings.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

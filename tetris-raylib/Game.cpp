@@ -1,9 +1,13 @@
+#include <assert.h>
 #include "Game.h"
 #include "raylibCpp.h"
-#include <assert.h>
+#include "Settings.h"
 Game::Game(int width, int height, int fps, std::string title)
 	:
-	board({200,200},{10,20},15,2)
+	board(settings::boardPosition,
+		  settings::boardWidthHeight,
+		  settings::cellSize,
+		  settings::padding)
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
