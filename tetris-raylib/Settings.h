@@ -3,13 +3,13 @@
 namespace settings
 {
 	//Window settings
-	constexpr int screenWidth = 800;
-	constexpr int screenHeight = 600;
-	constexpr int fps = 60;
+	inline constexpr int screenWidth = 800;
+	inline constexpr int screenHeight = 600;
+	inline constexpr int fps = 60;
 
 	//Board settings
-	constexpr int cellSize = 23;
-	constexpr int padding = 2;
-	constexpr Vec2<int> boardPosition{ 250,70 };
-	constexpr Vec2<int> boardWidthHeight{ 10,20 };
+	inline constexpr int cellSize = 23;
+	inline constexpr int padding = 2;
+	inline constexpr Vec2<int> boardPosition{ 250,70 };
+	inline constexpr Vec2<int> boardWidthHeight{ 10,20 };
 }
