@@ -18,6 +18,11 @@ void Board::Cell::Remove()
 	bExists = false;
 }
 
+bool Board::Cell::Exists() const
+{
+	return bExists;
+}
+
 Color Board::Cell::GetColor() const
 {
 	return c;
@@ -64,8 +69,16 @@ void Board::Draw() const
 	{
 		for (int iX = 0; iX < width; ++iX)
 		{
-			DrawCell({iX,iY});
+			if (CellExists({ iX,iY }))
+			{
+				DrawCell({ iX,iY });
+			}
 		}
 	}
 	DrawBorder();
+}
+
+bool Board::CellExists(Vec2<int> pos) const
+{
+	return cells[pos.GetY()*width + pos.GetX()].Exists();
 }
