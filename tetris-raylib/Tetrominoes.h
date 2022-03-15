@@ -7,6 +7,7 @@ class Tetromino
 {
 public:
 	Tetromino(const bool* shape, int dimension, Color color, const Board& board);
+	void Draw() const;
 private:
 	Vec2<int> boardPos;
 	const bool* shape;
