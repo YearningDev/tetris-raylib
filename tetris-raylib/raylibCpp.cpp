@@ -12,5 +12,5 @@ void raycpp::DrawRectangleLinesEx(Vec2<int> pos, Vec2<int> widthHeight, int line
 	assert(pos.GetX() >= 0 && pos.GetY() >= 0 &&
 		pos.GetX() < GetScreenWidth() && pos.GetY() < GetScreenHeight()); //If assertion triggers : Trying to draw outisde of the screen
 	assert(lineThick > 0); //If assertion triggers : line thickness is less than 1
-	DrawRectangleLinesEx({(float)pos.GetX(),(float)pos.GetY(), (float)widthHeight.GetX(), (float)widthHeight.GetY()}, lineThick, color);
+	DrawRectangleLinesEx({(float)pos.GetX(),(float)pos.GetY(), (float)widthHeight.GetX(), (float)widthHeight.GetY()}, (float)lineThick, color);
 }
