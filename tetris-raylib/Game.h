@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Board.h"
+#include "Tetrominoes.h"
 class Game
 {
 public:
@@ -15,4 +16,5 @@ private:
 	void Draw();
 
 	Board board;
+	Jay tetromino;
 };
