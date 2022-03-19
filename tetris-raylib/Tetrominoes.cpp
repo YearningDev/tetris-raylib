@@ -19,7 +19,7 @@ void Tetromino::Draw() const
 			bool cell = shape[y * dimension + x];
 			if (cell)
 			{
-				board.DrawCell(boardPos + Vec2<int>{x,y});
+				board.DrawCell(boardPos + Vec2<int>{x,y}, color);
 			}
 		}
 	}
